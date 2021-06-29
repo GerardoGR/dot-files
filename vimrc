@@ -1,0 +1,103 @@
+syntax enable
+set background=light
+colorscheme solarized
+
+set number
+
+set laststatus=0
+set clipboard=unnamedplus
+
+set ts=2
+set expandtab
+set shiftwidth=2
+set autoindent
+set smartindent
+set paste
+
+" NerdTreee
+map <C-b> :NERDTreeToggle<CR>
+let NERDTreeShowHidden=1
+
+" ALE
+let g:ale_echo_msg_error_str = 'E'
+let g:ale_echo_msg_warning_str = 'W'
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+
+"" Linters
+let g:ale_completion_enabled = 1
+let g:ale_sign_column_always = 1
+let g:ale_linters = {
+	\ 'go': ['gobuild', 'gopls', 'golangci-lint'],
+  \ 'python': ['pyls'],
+	\ 'terraform': ['terraform', 'terraform_ls', 'tflint'],
+	\}
+let g:ale_python_pyls_executable = "pylsp"
+let g:ale_python_pyls_config = {
+\   'pyls': {
+\     'plugins': {
+\       'pycodestyle': {
+\         'enabled': v:false,
+\       },
+\       'pyflakes': {
+\         'enabled': v:false,
+\       },
+\       'pydocstyle': {
+\         'enabled': v:false,
+\       },
+\       'rope_completion': {
+\         'enabled': v:true,
+\       }
+\     },
+\   },
+\}
+nmap gd <Plug>(ale_go_to_definition)
+
+"" Fixers
+let g:ale_fixers = {
+  \ '*': ['remove_trailing_lines', 'trim_whitespace'],
+	\ 'go': ['gofmt', 'goimports'],
+	\ 'terraform': ['terraform'],
+	\ 'python': ['black', 'isort'],
+	\}
+let g:ale_fix_on_save = 1
+
+" Go-lang
+let g:ale_go_gofmt_executable = 'gofumpt'
+
+" vimspector
+let g:vimspector_enable_mappings = 'HUMAN'
+
+" fzf
+command! RecursiveGFiles call fzf#run(fzf#wrap({'source': 'git ls-files --cached --recurse-submodules & git ls-files --exclude-standard --others'}))
+command! CtrlP execute (len(system("git rev-parse"))) ? ':Files' : ':RecursiveGFiles'
+map <C-p> :CtrlP<CR>
+
+let $FZF_DEFAULT_OPTS = '--bind alt-a:select-all'
+
+func s:fnameescape(key, val)
+  return fnameescape(a:val)
+endfunc
+function! s:populate_arg_list(lines)
+  execute 'args ' . join(map(a:lines, function('s:fnameescape')), ' ')
+endfunction
+
+let g:fzf_action = {
+  \ 'ctrl-l': function('s:populate_arg_list'),
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-x': 'split',
+  \ 'ctrl-v': 'vsplit'
+  \}
+
+
+" vim-gitgutter
+set updatetime=100
+highlight clear SignColumn
+highlight GitGutterAdd ctermfg=2* guifg=darkgreen
+highlight GitGutterChange ctermfg=3* guifg=darkyellow
+highlight GitGutterDelete ctermfg=1* guifg=darkred
+highlight GitGutterChangeDelete ctermfg=3* guifg=darkyellow
+
+packloadall
+silent! helptags ALL
+
+filetype plugin on
