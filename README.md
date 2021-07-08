@@ -1,5 +1,9 @@
 # My dot files
 
+## Requirements
+
+1. git
+
 ## Install
 
 ```bash
