@@ -1,7 +1,9 @@
 *
+# Track vim
 !/.vim/
 !/.vim/*
 
-# Vim swap files
-*.swp
-*.swa
+# Track tmux
+!/.tmux/
+!/.tmux/*
+!/.tmux.conf
