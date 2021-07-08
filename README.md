@@ -1,11 +1,11 @@
-# My ViM
+# My dot files
 
-## Update plugins
+## Update vim plugins
 
 ```bash
 git submodule foreach 'git pull'
 
-git add pack/
-git commit -m "chore: upgrade vim plugins"
+git add .vim/pack/
+git commit -m "chore: update vim plugins"
 git push
 ```
