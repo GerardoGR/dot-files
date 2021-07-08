@@ -1,19 +1,8 @@
 # My dot files
 
-## Requirements
-
-1. git
-
 ## Install
 
-```bash
-cd $HOME
-git init
-git remote add origin git@github.com:GerardoGR/dot-files.git
-git pull
-git checkout main
-git submodule update --init --recursive
-```
+Run the `./install.bash` script
 
 ## Update vim and tmux plugins
 

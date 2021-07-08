@@ -3,6 +3,9 @@
 !/.bashrc
 !/.bash_profile
 
+# Track installation script
+!/install.bash
+
 # Track vim
 !/.vim/
 !/.vim/*
