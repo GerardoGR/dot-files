@@ -1,5 +1,16 @@
 # My dot files
 
+## Install
+
+```bash
+cd $HOME
+git init
+git remote add origin git@github.com:GerardoGR/dot-files.git
+git pull
+git checkout main
+git submodule update --init --recursive
+```
+
 ## Update vim and tmux plugins
 
 ```bash
