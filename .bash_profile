@@ -1,5 +1,7 @@
 [[ -r ~/.bashrc ]] && . ~/.bashrc
 
+export PATH=$PATH:$HOME/.local/bin
+
 # Editor
 export VISUAL=vim
 export EDITOR="$VISUAL"

@@ -2,7 +2,7 @@
 
 ## Install
 
-Run the `./install.bash` script
+Run `dot-files-install.bash` script
 
 ## Update vim and tmux plugins
 
