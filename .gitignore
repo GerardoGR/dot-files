@@ -8,9 +8,7 @@
 
 # Track vim
 !/.vim/
-!/.vim/*
+!/.vim/vimrc
 
 # Track tmux
-!/.tmux/
-!/.tmux/*
 !/.tmux.conf
