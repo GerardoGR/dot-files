@@ -28,12 +28,11 @@ let g:ale_completion_enabled = 1
 let g:ale_sign_column_always = 1
 let g:ale_linters = {
 	\ 'go': ['gobuild', 'gopls', 'golangci-lint'],
-  \ 'python': ['pyls'],
+  \ 'python': ['pylsp'],
 	\ 'terraform': ['terraform', 'terraform_ls', 'tflint'],
 	\}
-let g:ale_python_pyls_executable = "pylsp"
-let g:ale_python_pyls_config = {
-\   'pyls': {
+let g:ale_python_pylsp_config = {
+\   'pylsp': {
 \     'plugins': {
 \       'pycodestyle': {
 \         'enabled': v:false,
