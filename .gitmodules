@@ -37,3 +37,6 @@
 [submodule ".tmux/plugins/tpm"]
 	path = .tmux/plugins/tpm
 	url = https://github.com/tmux-plugins/tpm
+[submodule ".vim/pack/plugins/start/vader.vim"]
+	path = .vim/pack/plugins/start/vader.vim
+	url = https://github.com/junegunn/vader.vim.git
