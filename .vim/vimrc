@@ -13,6 +13,9 @@ set shiftwidth=2
 set autoindent
 set smartindent
 
+" Cloudformation files
+au BufRead,BufNewFile *template.yaml,*substack.yaml set filetype=cloudformation.yaml
+
 " NerdTreee
 map <C-b> :NERDTreeToggle<CR>
 let NERDTreeShowHidden=1
