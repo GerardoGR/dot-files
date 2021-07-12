@@ -26,13 +26,11 @@ let g:ale_echo_msg_warning_str = 'W'
 let g:ale_echo_msg_format = '[%linter%] %severity%: %s'
 
 "" Linters
-""" TODO: python flake8 is enabled because I was not able to have it running
-""" within pylsp using pyls-flake8 3rd party plugin.
 let g:ale_completion_enabled = 1
 let g:ale_sign_column_always = 1
 let g:ale_linters = {
 	\ 'go': ['gobuild', 'gopls', 'golangci-lint'],
-  \ 'python': ['pylsp', 'flake8'],
+  \ 'python': ['pylsp'],
 	\ 'terraform': ['terraform', 'terraform_ls', 'tflint'],
 	\}
 let g:ale_python_pylsp_config = {
@@ -43,6 +41,9 @@ let g:ale_python_pylsp_config = {
 \       },
 \       'pyflakes': {
 \         'enabled': v:false,
+\       },
+\       'flake8': {
+\         'enabled': v:true,
 \       },
 \     },
 \   },
