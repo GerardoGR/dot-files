@@ -4,6 +4,12 @@
 
 Run `dot-files-install.bash` script
 
+## Pull latest changes
+
+```bash
+git pull --recurse-submodules
+```
+
 ## Update vim and tmux plugins
 
 ```bash
