@@ -32,6 +32,7 @@ let g:ale_linters = {
 	\ 'go': ['gobuild', 'gopls', 'golangci-lint'],
   \ 'python': ['pylsp'],
 	\ 'terraform': ['terraform', 'terraform_ls', 'tflint'],
+	\ 'typescript': ['tsserver', 'eslint'],
 	\}
 let g:ale_python_pylsp_config = {
 \   'pylsp': {
