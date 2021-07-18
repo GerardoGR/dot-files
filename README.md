@@ -10,12 +10,12 @@ Run `dot-files-install.bash` script
 git pull --recurse-submodules
 ```
 
-## Update vim and tmux plugins
+## Update nvm, vim and tmux plugins
 
 ```bash
 git submodule foreach 'git pull'
 
-git add .tmux/plugins/ .vim/pack/
+git add .tmux/plugins/ .vim/pack/ .nvm/
 git commit -m "chore: update tmux and vim  plugins"
 git push
 ```

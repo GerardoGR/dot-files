@@ -40,3 +40,6 @@
 [submodule ".vim/pack/plugins/start/vader.vim"]
 	path = .vim/pack/plugins/start/vader.vim
 	url = https://github.com/junegunn/vader.vim.git
+[submodule ".nvm"]
+	path = .nvm
+	url = https://github.com/nvm-sh/nvm.git
