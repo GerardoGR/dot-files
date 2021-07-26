@@ -57,7 +57,7 @@ let g:ale_fixers = {
 	\ 'go': ['gofmt', 'goimports'],
 	\ 'terraform': ['terraform'],
 	\ 'python': ['black', 'isort'],
-	\ 'yaml': ['prettier'],
+	\ 'cloudformation': ['prettier'],
 	\}
 let g:ale_fix_on_save = 1
 
