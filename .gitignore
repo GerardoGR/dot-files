@@ -1,14 +1,3 @@
-*
-# Track bash
-!/.bashrc
-!/.bash_profile
-
-# Track installation script
-!/.local/bin/dot-files-install.bash
-
-# Track vim
-!/.vim/
-!/.vim/vimrc
-
-# Track tmux
-!/.tmux.conf
+# ViM swap files
+*.swp
+*.swa

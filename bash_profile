@@ -1,6 +1,7 @@
 [[ -r ~/.bashrc ]] && . ~/.bashrc
 
 export PATH=$PATH:$HOME/.local/bin
+export PATH=$PATH:$HOME/.local/dot-files-bin
 
 # Editor
 export VISUAL=vim
