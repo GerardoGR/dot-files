@@ -67,6 +67,8 @@ let g:ale_go_gofmt_executable = 'gofumpt'
 
 " vimspector
 let g:vimspector_enable_mappings = 'HUMAN'
+let g:vimspector_install_gadgets = [ 'debugpy' ]
+nmap <Leader><F4> :VimspectorReset<CR>
 
 " fzf
 command! RecursiveGFiles call fzf#run(fzf#wrap({'source': 'git ls-files --cached --recurse-submodules & git ls-files --exclude-standard --others'}))
