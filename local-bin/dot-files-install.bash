@@ -10,16 +10,16 @@ ln -sf $HOME/.dot-files/bashrc $HOME/.bashrc
 ln -sf $HOME/.dot-files/bash_profile $HOME/.bash_profile
 
 mkdir -p $HOME/.local
-rm $HOME/.local/dot-files-bin
+rm -rf $HOME/.local/dot-files-bin
 ln -sf $HOME/.dot-files/local-bin $HOME/.local/dot-files-bin
 
-rm $HOME/.vim
+rm -rf $HOME/.vim
 ln -sf $HOME/.dot-files/vim $HOME/.vim
 
 mkdir -p $HOME/.tmux/
-rm $HOME/.tmux/plugins
+rm -rf $HOME/.tmux/plugins
 ln -sf $HOME/.dot-files/tmux/plugins $HOME/.tmux/plugins
 ln -sf $HOME/.dot-files/tmux/tmux.conf $HOME/.tmux.conf
 
-rm $HOME/.nvm
+rm -rf $HOME/.nvm
 ln -sf $HOME/.dot-files/nvm $HOME/.nvm
