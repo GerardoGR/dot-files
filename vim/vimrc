@@ -30,6 +30,7 @@ let g:ale_completion_enabled = 1
 let g:ale_sign_column_always = 1
 let g:ale_linters = {
 	\ 'go': ['gobuild', 'gopls', 'golangci-lint'],
+	\ 'qml': ['qmlfmt'],
   \ 'python': ['pylsp'],
 	\ 'terraform': ['terraform', 'terraform_ls', 'tflint'],
 	\ 'typescript': ['tsserver', 'eslint'],
@@ -56,6 +57,7 @@ nmap gd <Plug>(ale_go_to_definition)
 let g:ale_fixers = {
   \ '*': ['remove_trailing_lines', 'trim_whitespace'],
 	\ 'go': ['gofmt', 'goimports'],
+	\ 'qml': ['qmlfmt'],
 	\ 'terraform': ['terraform'],
 	\ 'python': ['black', 'isort'],
 	\ 'cloudformation': ['prettier'],
