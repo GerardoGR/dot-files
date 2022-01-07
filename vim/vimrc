@@ -18,6 +18,9 @@ set listchars=tab:··
 " Cloudformation files
 au BufRead,BufNewFile *template.yaml,*substack.yaml set filetype=cloudformation.yaml
 
+" TSX files
+au BufRead,BufNewFile *.tsx set filetype=typescript
+
 " NerdTreee
 map <C-b> :NERDTreeToggle<CR>
 let NERDTreeShowHidden=1
