@@ -1,6 +1,6 @@
 syntax enable
-" set background=dark
-" colorscheme solarized
+set background=dark
+colorscheme solarized
 
 set number
 
@@ -20,12 +20,10 @@ set listchars=tab:··
 let g:netrw_banner = 0
 let g:netrw_winsize = 25
 let g:netrw_keepdir = 0
-
 nmap <leader>da :Lexplore %:p:h<CR>
 nmap <leader>dd :Lexplore<CR>
 
+packloadall
+silent! helptags ALL
 
-" packloadall
-" silent! helptags ALL
-" 
-" filetype plugin on
+filetype plugin on
