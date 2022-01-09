@@ -16,6 +16,11 @@ ln -sf $HOME/.dot-files/local-bin $HOME/.local/dot-files-bin
 rm -rf $HOME/.vim
 ln -sf $HOME/.dot-files/vim $HOME/.vim
 
+# TODO: Document nvim
+# ln -sf ~/.dot-files/nvim/init.vim ~/.config/nvim
+# mkdir -p $HOME/.local/share/nvim
+# ln -sf ~/.dot-files/nvim/site ~/.local/share/nvim/site
+
 mkdir -p $HOME/.tmux/
 rm -rf $HOME/.tmux/plugins
 ln -sf $HOME/.dot-files/tmux/plugins $HOME/.tmux/plugins
