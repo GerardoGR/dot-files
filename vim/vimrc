@@ -21,9 +21,16 @@ au BufRead,BufNewFile *template.yaml,*substack.yaml set filetype=cloudformation.
 " TSX files
 au BufRead,BufNewFile *.tsx set filetype=typescript
 
-" NerdTreee
-map <C-b> :NERDTreeToggle<CR>
-let NERDTreeShowHidden=1
+" Netrw
+" Inspired by:
+" https://vonheikemen.github.io/devlog/tools/using-netrw-vim-builtin-file-explorer/
+" https://shapeshed.com/vim-netrw/#nerdtree-like-setup
+let g:netrw_banner = 0
+let g:netrw_liststyle = 3
+let g:netrw_altv = 1
+let g:netrw_winsize = 25
+nmap <leader>da :Lexplore %:p:h<CR>
+nmap <leader>dd :Lexplore<CR>
 
 " ALE
 let g:ale_echo_msg_error_str = 'E'
