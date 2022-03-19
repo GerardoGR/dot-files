@@ -42,26 +42,11 @@ let g:ale_completion_enabled = 1
 let g:ale_sign_column_always = 1
 let g:ale_linters = {
   \ 'go': ['gobuild', 'gopls', 'golangci-lint'],
-  \ 'python': ['pylsp'],
+  \ 'python': ['pyright'],
   \ 'terraform': ['terraform', 'terraform_ls', 'tflint'],
   \ 'typescript': ['tsserver', 'eslint'],
   \}
 let g:ale_go_golangci_lint_options = ''
-let g:ale_python_pylsp_config = {
-\   'pylsp': {
-\     'plugins': {
-\       'pycodestyle': {
-\         'enabled': v:false,
-\       },
-\       'pyflakes': {
-\         'enabled': v:false,
-\       },
-\       'flake8': {
-\         'enabled': v:true,
-\       },
-\     },
-\   },
-\}
 nmap gd <Plug>(ale_go_to_definition)
 
 "" Fixers
