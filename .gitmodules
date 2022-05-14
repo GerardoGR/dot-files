@@ -40,12 +40,6 @@
 [submodule "vim/pack/plugins/start/vim-qml"]
 	path = vim/pack/plugins/start/vim-qml
 	url = https://github.com/peterhoeg/vim-qml.git
-[submodule "nvim/site/pack/plugins/start/vim-colors-solarized"]
-	path = nvim/site/pack/plugins/start/vim-colors-solarized
-	url = https://github.com/altercation/vim-colors-solarized.git
-[submodule "nvim/site/pack/plugins/start/fugitive"]
-	path = nvim/site/pack/plugins/start/fugitive
-	url = https://github.com/tpope/vim-fugitive
 [submodule "asdf"]
 	path = asdf
 	url = https://github.com/asdf-vm/asdf.git
