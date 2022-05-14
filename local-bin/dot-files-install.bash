@@ -2,9 +2,6 @@
 
 set -e
 
-# Install packages
-sudo apt install git vim-gtk3 tmux
-
 # Setup dot-files
 ln -sf $HOME/.dot-files/bashrc $HOME/.bashrc
 ln -sf $HOME/.dot-files/bash_profile $HOME/.bash_profile
