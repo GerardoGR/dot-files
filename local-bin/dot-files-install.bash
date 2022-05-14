@@ -26,5 +26,8 @@ rm -rf $HOME/.tmux/plugins
 ln -sf $HOME/.dot-files/tmux/plugins $HOME/.tmux/plugins
 ln -sf $HOME/.dot-files/tmux/tmux.conf $HOME/.tmux.conf
 
-rm -rf $HOME/.nvm
-ln -sf $HOME/.dot-files/nvm $HOME/.nvm
+rm -rf $HOME/.asdf
+ln -sf $HOME/.dot-files/asdf $HOME/.asdf
+ln -sf $HOME/.dot-files/asdf-tool-versions $HOME/.tool-versions
+source $HOME/.bashrc
+asdf install
