@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<channel name="xfce4-panel" version="1.0">
+  <property name="configver" type="int" value="2"/>
+  <property name="panels" type="array">
+    <value type="int" value="1"/>
+    <property name="dark-mode" type="bool" value="true"/>
+    <property name="panel-1" type="empty">
+      <property name="position" type="string" value="p=6;x=0;y=0"/>
+      <property name="length" type="uint" value="100"/>
+      <property name="position-locked" type="bool" value="true"/>
+      <property name="icon-size" type="uint" value="22"/>
+      <property name="size" type="uint" value="36"/>
+      <property name="plugin-ids" type="array">
+        <value type="int" value="1"/>
+        <value type="int" value="2"/>
+        <value type="int" value="3"/>
+        <value type="int" value="6"/>
+        <value type="int" value="8"/>
+        <value type="int" value="9"/>
+        <value type="int" value="10"/>
+        <value type="int" value="11"/>
+        <value type="int" value="12"/>
+        <value type="int" value="13"/>
+        <value type="int" value="14"/>
+      </property>
+      <property name="length-adjust" type="bool" value="false"/>
+      <property name="enter-opacity" type="uint" value="100"/>
+      <property name="leave-opacity" type="uint" value="100"/>
+      <property name="mode" type="uint" value="0"/>
+      <property name="disable-struts" type="bool" value="false"/>
+      <property name="nrows" type="uint" value="1"/>
+      <property name="background-style" type="uint" value="0"/>
+    </property>
+  </property>
+  <property name="plugins" type="empty">
+    <property name="plugin-1" type="string" value="applicationsmenu">
+      <property name="show-button-title" type="bool" value="true"/>
+      <property name="show-generic-names" type="bool" value="false"/>
+      <property name="button-icon" type="string" value="desktop-environment-xfce"/>
+      <property name="show-tooltips" type="bool" value="false"/>
+      <property name="button-title" type="string" value="Applications"/>
+      <property name="custom-menu" type="bool" value="false"/>
+    </property>
+    <property name="plugin-2" type="string" value="tasklist">
+      <property name="grouping" type="uint" value="1"/>
+      <property name="flat-buttons" type="bool" value="true"/>
+      <property name="show-labels" type="bool" value="true"/>
+      <property name="show-handle" type="bool" value="true"/>
+      <property name="sort-order" type="uint" value="2"/>
+      <property name="include-all-workspaces" type="bool" value="true"/>
+      <property name="show-only-minimized" type="bool" value="false"/>
+    </property>
+    <property name="plugin-3" type="string" value="separator">
+      <property name="expand" type="bool" value="true"/>
+      <property name="style" type="uint" value="0"/>
+    </property>
+    <property name="plugin-6" type="string" value="systray">
+      <property name="square-icons" type="bool" value="true"/>
+      <property name="known-legacy-items" type="array">
+        <value type="string" value="xfce4-power-manager"/>
+        <value type="string" value="wi-fi network connection “valhalla 5ghz” active: valhalla 5ghz (44%)"/>
+        <value type="string" value="wi-fi network connection “valhalla 5ghz” active: valhalla 5ghz (53%)"/>
+        <value type="string" value="wi-fi network connection “valhalla 5ghz” active: valhalla 5ghz (70%)"/>
+        <value type="string" value="wi-fi network connection “valhalla 5ghz” active: valhalla 5ghz (54%)"/>
+        <value type="string" value="wi-fi network connection “valhalla 5ghz” active: valhalla 5ghz (59%)"/>
+        <value type="string" value="wi-fi network connection “valhalla 5ghz” active: valhalla 5ghz (57%)"/>
+        <value type="string" value="wi-fi network connection “valhalla 5ghz” active: valhalla 5ghz (60%)"/>
+        <value type="string" value="wi-fi network connection “valhalla 5ghz” active: valhalla 5ghz (55%)"/>
+        <value type="string" value="wi-fi network connection “valhalla 5ghz” active: valhalla 5ghz (56%)"/>
+        <value type="string" value="wi-fi network connection “valhalla 5ghz” active: valhalla 5ghz (50%)"/>
+        <value type="string" value="wi-fi network connection “valhalla 5ghz” active: valhalla 5ghz (58%)"/>
+        <value type="string" value="wi-fi network connection “valhalla 5ghz” active: valhalla 5ghz (52%)"/>
+        <value type="string" value="no network connection"/>
+        <value type="string" value="wi-fi network connection “moonlight” active: moonlight (54%)"/>
+        <value type="string" value="wi-fi network connection “moonlight” active: moonlight (49%)"/>
+        <value type="string" value="wi-fi network connection “moonlight” active: moonlight (53%)"/>
+        <value type="string" value="wi-fi network connection “moonlight” active: moonlight (56%)"/>
+        <value type="string" value="wi-fi network connection “moonlight” active: moonlight (60%)"/>
+        <value type="string" value="wi-fi network connection “moonlight” active: moonlight (57%)"/>
+        <value type="string" value="wi-fi network connection “moonlight” active: moonlight (94%)"/>
+        <value type="string" value="wi-fi network connection “moonlight” active: moonlight (58%)"/>
+        <value type="string" value="wi-fi network connection “moonlight_5ghz” active: moonlight_5ghz (40%) vpn connection active"/>
+        <value type="string" value="wi-fi network connection “moonlight_5ghz” active: moonlight_5ghz (83%) vpn connection active"/>
+        <value type="string" value="wi-fi network connection “moonlight_5ghz” active: moonlight_5ghz (80%) vpn connection active"/>
+        <value type="string" value="wi-fi network connection “moonlight_5ghz” active: moonlight_5ghz (81%) vpn connection active"/>
+        <value type="string" value="wi-fi network connection “moonlight_5ghz” active: moonlight_5ghz (63%) vpn connection active"/>
+        <value type="string" value="wi-fi network connection “moonlight_5ghz” active: moonlight_5ghz (72%) vpn connection active"/>
+        <value type="string" value="thunar"/>
+        <value type="string" value="networkmanager applet"/>
+      </property>
+      <property name="known-items" type="array">
+        <value type="string" value="tutanota-desktop1"/>
+        <value type="string" value="discord1"/>
+        <value type="string" value="heroic1"/>
+        <value type="string" value="indicator-solaar"/>
+        <value type="string" value="Tresorit"/>
+        <value type="string" value="steam"/>
+        <value type="string" value="Element1"/>
+        <value type="string" value="blueman"/>
+        <value type="string" value="Rare"/>
+      </property>
+      <property name="icon-size" type="int" value="0"/>
+      <property name="single-row" type="bool" value="true"/>
+      <property name="hidden-legacy-items" type="array">
+      </property>
+      <property name="hidden-items" type="array">
+      </property>
+      <property name="hide-new-items" type="bool" value="false"/>
+    </property>
+    <property name="plugin-8" type="string" value="pulseaudio">
+      <property name="enable-keyboard-shortcuts" type="bool" value="true"/>
+      <property name="show-notifications" type="bool" value="true"/>
+      <property name="mpris-players" type="string" value="firefox.instance1178;firefox.instance1230;firefox.instance1249;firefox.instance12910;firefox.instance1364;firefox.instance1389;firefox.instance1412;firefox.instance1474;firefox.instance1478;firefox.instance1484;firefox.instance1495;firefox.instance1501;firefox.instance1551;firefox.instance1569;firefox.instance1590;firefox.instance1660;firefox.instance1663;firefox.instance1691;firefox.instance1716;firefox.instance1737;firefox.instance1752;firefox.instance1898;firefox.instance1964;firefox.instance2008;firefox.instance2038;firefox.instance2115;firefox.instance23554;firefox.instance3160;firefox.instance3294;firefox.instance3518;firefox.instance4934;firefox.instance5923;firefox.instance7367;firefox.instance76400"/>
+    </property>
+    <property name="plugin-9" type="string" value="power-manager-plugin"/>
+    <property name="plugin-10" type="string" value="notification-plugin"/>
+    <property name="plugin-11" type="string" value="separator">
+      <property name="style" type="uint" value="0"/>
+    </property>
+    <property name="plugin-12" type="string" value="clock">
+      <property name="mode" type="uint" value="2"/>
+      <property name="timezone" type="string" value="Europe/Berlin"/>
+      <property name="digital-format" type="string" value="%_H:%M"/>
+      <property name="tooltip-format" type="string" value="%A %d %B %Y"/>
+    </property>
+    <property name="plugin-13" type="string" value="separator">
+      <property name="style" type="uint" value="0"/>
+    </property>
+    <property name="plugin-14" type="string" value="actions">
+      <property name="appearance" type="uint" value="0"/>
+      <property name="button-title" type="uint" value="1"/>
+      <property name="items" type="array">
+        <value type="string" value="-lock-screen"/>
+        <value type="string" value="-switch-user"/>
+        <value type="string" value="-separator"/>
+        <value type="string" value="-suspend"/>
+        <value type="string" value="-hibernate"/>
+        <value type="string" value="-hybrid-sleep"/>
+        <value type="string" value="-separator"/>
+        <value type="string" value="-shutdown"/>
+        <value type="string" value="-restart"/>
+        <value type="string" value="-separator"/>
+        <value type="string" value="+logout"/>
+        <value type="string" value="-logout-dialog"/>
+      </property>
+    </property>
+  </property>
+</channel>

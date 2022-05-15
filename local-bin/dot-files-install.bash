@@ -21,6 +21,11 @@ rm -rf $HOME/.tmux/plugins
 ln -sf $HOME/.dot-files/tmux/plugins $HOME/.tmux/plugins
 ln -sf $HOME/.dot-files/tmux/tmux.conf $HOME/.tmux.conf
 
+# xfce4
+rm -rf $HOME/.config/xfce4/terminal $HOME/.config/xfce4/xfconf/xfce-perchannel-xml
+ln -sf $HOME/.dot-files/xfce4/terminal $HOME/.config/xfce4/terminal
+ln -sf $HOME/.dot-files/xfce4/xfconf/xfce-perchannel-xml $HOME/.config/xfce4/xfconf/xfce-perchannel-xml
+
 # asdf
 rm -rf $HOME/.asdf
 ln -sf $HOME/.dot-files/asdf $HOME/.asdf
