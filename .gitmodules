@@ -41,5 +41,5 @@
 	path = vim/pack/plugins/start/vim-qml
 	url = https://github.com/peterhoeg/vim-qml.git
 [submodule "asdf"]
-	path = asdf
+	path = asdf/base
 	url = https://github.com/asdf-vm/asdf.git

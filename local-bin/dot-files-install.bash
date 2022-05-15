@@ -29,9 +29,16 @@ xfce4-panel --quit ; pkill xfconfd ; xfce4-panel 2> /dev/null &
 
 # asdf
 rm -rf $HOME/.asdf
-ln -sf $HOME/.dot-files/asdf $HOME/.asdf
-ln -sf $HOME/.dot-files/asdf-tool-versions $HOME/.tool-versions
+ln -sf $HOME/.dot-files/asdf/base $HOME/.asdf
+ln -sf $HOME/.dot-files/asdf/tool-versions $HOME/.tool-versions
 
 # asdf - install development environment
 source $HOME/.bashrc
+# asdf - install plugins defined in tool-versions
+for plugin in $(cat $HOME/.tool-versions | sed s/' .*$'//); do
+  asdf plugin-list | grep $plugin > /dev/null 2>&1
+  if [ $? -ne 0 ]; then
+    asdf plugin-add $plugin
+  fi
+done
 asdf install
