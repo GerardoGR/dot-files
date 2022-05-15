@@ -13,10 +13,10 @@ PS1='\w\$ '
 PATH=$PATH:$HOME/.local/bin
 PATH=$PATH:$HOME/.local/dot-files-bin
 
-# Golang
-export PATH=$PATH:/usr/local/go/bin
+# golang
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 
+# asdf
 . $HOME/.asdf/asdf.sh
 . $HOME/.asdf/completions/asdf.bash
