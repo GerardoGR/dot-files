@@ -1,5 +1,9 @@
 # My dot files
 
+## TODO
+
+- [ ] Package installation: sudo pacman -S ttc-iosevka
+
 ## Requirments
 
 1. Git
