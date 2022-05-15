@@ -1,13 +1,5 @@
-export PATH=$PATH:$HOME/.local/bin
-export PATH=$PATH:$HOME/.local/dot-files-bin
+#
+# ~/.bash_profile
+#
 
-[[ -r ~/.bashrc ]] && . ~/.bashrc
-
-# Editor
-export VISUAL=vim
-export EDITOR="$VISUAL"
-
-# Golang
-export PATH=$PATH:/usr/local/go/bin
-export GOPATH=$HOME/go
-export PATH=$PATH:$GOPATH/bin
+[[ -f ~/.bashrc ]] && . ~/.bashrc
