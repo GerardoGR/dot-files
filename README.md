@@ -14,7 +14,7 @@
 ```
 cd $HOME
 
-git clone git@github.com:GerardoGR/dot-files.git .dot-files
+git clone --recurse-submodules git@github.com:GerardoGR/dot-files.git .dot-files
 
 .dot-files/local-bin/dot-files-install.bash
 ```
