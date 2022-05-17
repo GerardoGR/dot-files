@@ -21,6 +21,11 @@ rm -rf $HOME/.tmux/plugins
 ln -sf $HOME/.dot-files/tmux/plugins $HOME/.tmux/plugins
 ln -sf $HOME/.dot-files/tmux/tmux.conf $HOME/.tmux.conf
 
+# lightdm
+sudo cp $HOME/.dot-files/lightdm/lightdm-gtk-greeter.conf /etc/lightdm/
+sudo chown root:root /etc/lightdm/lightdm-gtk-greeter.conf
+sudo chmod 644 /etc/lightdm/lightdm-gtk-greeter.conf
+
 # xfce4
 rm -rf $HOME/.config/xfce4/terminal $HOME/.config/xfce4/xfconf/xfce-perchannel-xml
 ln -sf $HOME/.dot-files/xfce4/terminal $HOME/.config/xfce4/terminal
