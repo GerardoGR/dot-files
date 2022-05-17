@@ -41,9 +41,8 @@ ln -sf $HOME/.dot-files/asdf/tool-versions $HOME/.tool-versions
 source $HOME/.bashrc
 # asdf - install plugins defined in tool-versions
 for plugin in $(cat $HOME/.tool-versions | sed s/' .*$'//); do
-  asdf plugin-list | grep $plugin > /dev/null 2>&1
-  if [ $? -ne 0 ]; then
-    asdf plugin-add $plugin
+  if ! asdf plugin list | grep $plugin > /dev/null 2>&1; then
+    asdf plugin add $plugin
   fi
 done
 asdf install
