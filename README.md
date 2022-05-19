@@ -3,7 +3,7 @@
 ## TODO
 
 - [ ] Document assuming sudo is setup
-- [ ] Package installation: sudo pacman -S vim, tmux, firefox, libreoffice-fresh, ttc-iosevka, papirus-icon-theme
+- [ ] Package installation: sudo pacman -S vim, tmux, firefox, libreoffice-fresh, ttc-iosevka, papirus-icon-theme, archlinux-wallpaper
 
 ## Requirments
 
