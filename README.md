@@ -2,7 +2,8 @@
 
 ## TODO
 
-- [ ] Package installation: sudo pacman -S ttc-iosevka
+- [ ] Document assuming sudo is setup
+- [ ] Package installation: sudo pacman -S vim, tmux, firefox, libreoffice-fresh, ttc-iosevka, papirus-icon-theme
 
 ## Requirments
 
