@@ -28,15 +28,17 @@ cd $HOME/.dot-files
 git pull --recurse-submodules
 ```
 
-## Update nvm, vim and tmux plugins
+## Upgrade vim or tmux plugins
 
 ```bash
 cd $HOME/.dot-files
 
-git submodule foreach 'git pull'
+for p in $(git submodule | awk '/vim/ {print $2}'); do (cd $p && git checkout master || git checkout main; git pull); done
+# or
+# for p in $(git submodule | awk '/tmux/ {print $2}'); do (cd $p && git checkout master || git checkout main; git pull); done
 
-git add tmux/plugins/ vim/pack/ nvm/
-git commit -m "chore: update tmux, vim and nvm plugins"
+git add vim
+git commit -m "chore: upgrade vim plugins"
 git push
 ```
 
