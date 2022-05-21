@@ -1,6 +1,6 @@
 syntax enable
-set background=dark
 colorscheme solarized
+set background=dark
 
 set number
 
@@ -91,6 +91,7 @@ let g:fzf_action = {
 " vim-gitgutter
 set updatetime=100
 highlight clear SignColumn
+highlight link SignColumn LineNr
 highlight GitGutterAdd ctermfg=2* guifg=darkgreen
 highlight GitGutterChange ctermfg=3* guifg=darkyellow
 highlight GitGutterDelete ctermfg=1* guifg=darkred
