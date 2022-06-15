@@ -1,0 +1,9 @@
+[Trigger]
+Operation = Install
+Operation = Remove
+Type = Package
+Target = *
+
+[Action]
+When = PostTransaction
+Exec = /bin/sh -c '/usr/bin/pacman -Qnqe > /home/gerardo/.dot-files/packages/base.txt && /usr/bin/pacman -Qqem > /home/gerardo/.dot-files/packages/foreign.aur.txt'

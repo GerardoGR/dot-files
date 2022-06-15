@@ -26,6 +26,10 @@ sudo cp $HOME/.dot-files/lightdm/lightdm-gtk-greeter.conf /etc/lightdm/
 sudo chown root:root /etc/lightdm/lightdm-gtk-greeter.conf
 sudo chmod 644 /etc/lightdm/lightdm-gtk-greeter.conf
 
+# pacman-hooks
+sudo mkdir -p /etc/pacman.d/hooks/
+sudo cp $HOME/.dot-files/pacman-hooks/update-pkglists.hook /etc/pacman.d/hooks/
+
 # xfce4
 rm -rf $HOME/.config/xfce4/terminal $HOME/.config/xfce4/xfconf/xfce-perchannel-xml
 ln -sf $HOME/.dot-files/xfce4/terminal $HOME/.config/xfce4/terminal
