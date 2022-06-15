@@ -24,6 +24,7 @@ flex
 fuse-overlayfs
 fuse2
 fwupd
+fzf
 galculator
 garcon
 gcc
