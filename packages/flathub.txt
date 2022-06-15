@@ -1,0 +1,2 @@
+com.tutanota.Tutanota
+im.riot.Riot

@@ -3,20 +3,21 @@
 ## TODO
 
 - [ ] Document assuming sudo is setup
-- [ ] Package installation: sudo pacman -S vim, tmux, firefox, libreoffice-fresh, ttc-iosevka, papirus-icon-theme, archlinux-wallpaper
 
 ## Requirments
 
 1. Git
 1. SSH Access to the git@github.com:GerardoGR/dot-files.git repo
 
-## Install
+## Install for the first time
 
 ```
 cd $HOME
 
 git clone --recurse-submodules git@github.com:GerardoGR/dot-files.git .dot-files
 
+.dot-files/local-bin/install-paru.bash
+.dot-files/local-bin/install-missing-packages.bash
 .dot-files/local-bin/dot-files-install.bash
 ```
 
