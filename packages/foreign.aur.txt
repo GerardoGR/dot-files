@@ -1,4 +1,6 @@
 firmware-manager
+golangci-lint-bin
+hadolint-bin
 heroic-games-launcher-bin
 kind-bin
 paru
