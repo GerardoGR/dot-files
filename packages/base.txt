@@ -12,14 +12,11 @@ bind
 bison
 blueman
 bluez-utils
-btrfs-progs
 discord
 dnsmasq
 edk2-ovmf
 exo
 fakeroot
-file
-findutils
 firefox
 flatpak
 flex
@@ -33,9 +30,7 @@ gcc
 git
 gnome-keyring
 go
-grep
 gvim
-gzip
 htop
 inetutils
 inkscape
@@ -87,7 +82,6 @@ nvidia-settings
 ocl-icd
 openal
 openresolv
-pacman
 pacman-contrib
 papirus-icon-theme
 parole
@@ -107,7 +101,6 @@ redshift
 ripgrep
 ristretto
 seahorse
-sed
 sof-firmware
 solaar
 steam
