@@ -67,7 +67,6 @@ lightdm-gtk-greeter
 linux
 linux-firmware
 linux-headers
-lvm2
 m4
 make
 man-db
