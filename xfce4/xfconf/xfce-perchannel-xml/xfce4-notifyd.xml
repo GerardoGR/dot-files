@@ -5,6 +5,7 @@
     <property name="known_applications" type="array">
       <value type="string" value="blueman"/>
       <value type="string" value="Electron"/>
+      <value type="string" value="Element"/>
       <value type="string" value="Firefox"/>
       <value type="string" value="heroic"/>
       <value type="string" value="nm-applet"/>
