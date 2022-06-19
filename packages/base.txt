@@ -12,6 +12,7 @@ bind
 bison
 blueman
 bluez-utils
+buildah
 discord
 dnsmasq
 edk2-ovmf
@@ -29,6 +30,7 @@ garcon
 gcc
 git
 gnome-keyring
+gnu-netcat
 go
 gvim
 htop
@@ -76,6 +78,7 @@ net-tools
 network-manager-applet
 networkmanager
 noto-fonts-emoji
+npm
 nvidia-dkms
 nvidia-settings
 ocl-icd
@@ -90,6 +93,7 @@ pipewire-alsa
 pipewire-pulse
 pkgconf
 podman
+podman-compose
 pv
 python-lxml
 python-pillow
