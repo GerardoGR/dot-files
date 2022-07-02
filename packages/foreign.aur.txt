@@ -1,4 +1,5 @@
 firmware-manager
+gnome-shell-extension-system76-power-git
 golangci-lint-bin
 hadolint-bin
 heroic-games-launcher-bin

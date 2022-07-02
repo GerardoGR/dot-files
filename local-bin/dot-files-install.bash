@@ -21,20 +21,9 @@ rm -rf $HOME/.tmux/plugins
 ln -sf $HOME/.dot-files/tmux/plugins $HOME/.tmux/plugins
 ln -sf $HOME/.dot-files/tmux/tmux.conf $HOME/.tmux.conf
 
-# lightdm
-sudo cp $HOME/.dot-files/lightdm/lightdm-gtk-greeter.conf /etc/lightdm/
-sudo chown root:root /etc/lightdm/lightdm-gtk-greeter.conf
-sudo chmod 644 /etc/lightdm/lightdm-gtk-greeter.conf
-
 # pacman-hooks
 sudo mkdir -p /etc/pacman.d/hooks/
 sudo cp $HOME/.dot-files/pacman-hooks/update-pkglists.hook /etc/pacman.d/hooks/
-
-# xfce4
-rm -rf $HOME/.config/xfce4/terminal $HOME/.config/xfce4/xfconf/xfce-perchannel-xml
-ln -sf $HOME/.dot-files/xfce4/terminal $HOME/.config/xfce4/terminal
-ln -sf $HOME/.dot-files/xfce4/xfconf/xfce-perchannel-xml $HOME/.config/xfce4/xfconf/xfce-perchannel-xml
-xfce4-panel --quit ; pkill xfconfd ; xfce4-panel 2> /dev/null &
 
 # asdf
 rm -rf $HOME/.asdf
