@@ -23,5 +23,6 @@
     <property name="dpms-enabled" type="bool" value="false"/>
     <property name="dpms-on-ac-off" type="uint" value="0"/>
     <property name="lock-screen-suspend-hibernate" type="bool" value="true"/>
+    <property name="lid-action-on-ac" type="uint" value="0"/>
   </property>
 </channel>

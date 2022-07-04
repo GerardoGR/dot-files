@@ -58,6 +58,8 @@
     <property name="plugin-6" type="string" value="systray">
       <property name="square-icons" type="bool" value="true"/>
       <property name="known-legacy-items" type="array">
+        <value type="string" value="wi-fi network connection “valhalla 5ghz” active: valhalla 5ghz (62%)"/>
+        <value type="string" value="wi-fi network connection “valhalla 5ghz” active: valhalla 5ghz (61%)"/>
         <value type="string" value="xfce4-power-manager"/>
         <value type="string" value="wi-fi network connection “valhalla 5ghz” active: valhalla 5ghz (44%)"/>
         <value type="string" value="wi-fi network connection “valhalla 5ghz” active: valhalla 5ghz (53%)"/>
@@ -90,6 +92,10 @@
         <value type="string" value="networkmanager applet"/>
       </property>
       <property name="known-items" type="array">
+        <value type="string" value="join?action=join&amp;confno=89984000061&amp;confid=dXRpZD1VVElEXzBjNWI3ZWNlZmM1ZjRhNzQ5MWVmZGJlMDA2OWQ5M2U1JnVzcz12d2ZQaHhoYnFhbDY5SmFvQ29MdWNjOXA5azI0WGZMUk45MWF5SjBLZ2E1WVd5UGpOdlBTd1BDUGZaTDNXaWNzMEEwclNILWZHd083YVJsemhycnhFdnhQWXRtTy5tMTU5b0Y4bjNJM05TY1E1JnRpZD0xODRjZTdkNjMwMDY0YWQ1OTg4NDRkNWUyZjE2MDEzYg%3D%3D&amp;browser=firefox"/>
+        <value type="string" value="join?action=join&amp;confno=82190857704&amp;confid=dXRpZD1VVElEXzAyZGZmZTM0NzQwZTQ5YmE4YzVlYjdmYzQwYjJmY2Q4JnVzcz1XTXpGbHpqb3BCMjF4OHF3Z1RwNkMwWmZHdUhtYmR4d1BoYmhOU1NENXlfYmx4NW9URDk3czBVSTBoOENVYXlvZWM2SmlTcWRpYTEwaF80dlozX3cyeXhzdzFBVS5nd09OQVBoVmh4T1V4TzVrJnRpZD0xODRjZTdkNjMwMDY0YWQ1OTg4NDRkNWUyZjE2MDEzYg%3D%3D&amp;browser=firefox"/>
+        <value type="string" value="join?action=join&amp;confno=87669165864&amp;confid=dXRpZD1VVElEX2Q3NDFiMDgyZjA0NjQ2MDdhYTI4MzI3NGQ2OGUzZmY4JnVzcz1pWVdrd21kQ3JEbjJkVkZ0SWYycVp4SmJwMWFibWJrQ1MtdDI1QzRORm9vUlU1UXgzeFJlc1lBQmdFWm0yX0MtbzExUGxaR0RuNXpsRnlYSzkxWlNQTExRZk11VC5QTGxmSHVkVkNMSHNKQ1JJJnRpZD0xODRjZTdkNjMwMDY0YWQ1OTg4NDRkNWUyZjE2MDEzYg%3D%3D&amp;browser=firefox"/>
+        <value type="string" value="Slack1"/>
         <value type="string" value="tutanota-desktop1"/>
         <value type="string" value="discord1"/>
         <value type="string" value="heroic1"/>
@@ -111,7 +117,7 @@
     <property name="plugin-8" type="string" value="pulseaudio">
       <property name="enable-keyboard-shortcuts" type="bool" value="true"/>
       <property name="show-notifications" type="bool" value="true"/>
-      <property name="mpris-players" type="string" value="firefox.instance1178;firefox.instance1230;firefox.instance1249;firefox.instance12910;firefox.instance1364;firefox.instance1389;firefox.instance1412;firefox.instance1474;firefox.instance1478;firefox.instance1484;firefox.instance1495;firefox.instance1501;firefox.instance1551;firefox.instance1569;firefox.instance1590;firefox.instance1660;firefox.instance1663;firefox.instance1691;firefox.instance1716;firefox.instance1737;firefox.instance1752;firefox.instance1898;firefox.instance1964;firefox.instance2008;firefox.instance2038;firefox.instance2115;firefox.instance23554;firefox.instance3160;firefox.instance3294;firefox.instance3518;firefox.instance4934;firefox.instance5923;firefox.instance7367;firefox.instance76400"/>
+      <property name="mpris-players" type="string" value="firefox.instance1178;firefox.instance1230;firefox.instance1249;firefox.instance12910;firefox.instance1364;firefox.instance1389;firefox.instance1412;firefox.instance1474;firefox.instance1478;firefox.instance1484;firefox.instance1495;firefox.instance1501;firefox.instance1551;firefox.instance1569;firefox.instance1590;firefox.instance16357;firefox.instance1660;firefox.instance1663;firefox.instance1691;firefox.instance1716;firefox.instance17265;firefox.instance1737;firefox.instance1752;firefox.instance1898;firefox.instance1964;firefox.instance2008;firefox.instance2038;firefox.instance2115;firefox.instance23554;firefox.instance305670;firefox.instance3160;firefox.instance3294;firefox.instance3518;firefox.instance4934;firefox.instance5923;firefox.instance6473;firefox.instance7367;firefox.instance76400"/>
     </property>
     <property name="plugin-9" type="string" value="power-manager-plugin"/>
     <property name="plugin-10" type="string" value="notification-plugin"/>
