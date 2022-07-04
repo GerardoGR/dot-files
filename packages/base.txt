@@ -6,6 +6,7 @@ aws-cli
 base
 bash-completion
 bash-language-server
+bind
 binutils
 bison
 blueman
@@ -13,12 +14,14 @@ bluez-utils
 btrfs-progs
 chromium
 docker
+docker-compose
 efibootmgr
 exo
 fakeroot
 file
 findutils
 firefox
+flake8
 flatpak
 flex
 fzf
@@ -29,7 +32,9 @@ gcc
 gettext
 git
 gnome-firmware
+gnu-netcat
 go
+gopls
 grep
 groff
 gst-plugin-pipewire
@@ -72,6 +77,9 @@ pipewire-pulse
 pkgconf
 podman
 pv
+pyright
+python-pylint
+python-virtualenv
 ripgrep
 ristretto
 sed

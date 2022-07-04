@@ -1,5 +1,6 @@
 awsume
 golangci-lint-bin
+grpcurl-bin
 hadolint-bin
 kind-bin
 paru

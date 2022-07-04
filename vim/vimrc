@@ -39,7 +39,7 @@ let g:ale_completion_enabled = 1
 let g:ale_sign_column_always = 1
 let g:ale_linters = {
   \ 'go': ['gobuild', 'gopls', 'golangci-lint'],
-  \ 'python': ['pyright'],
+  \ 'python': ['pyright', 'flake8'],
   \ 'terraform': ['terraform', 'terraform_ls', 'tflint'],
   \ 'hcl': ['tflint'],
   \ 'typescript': ['tsserver', 'eslint'],
