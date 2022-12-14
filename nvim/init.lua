@@ -95,6 +95,26 @@ lspconfig['eslint'].setup{
     flags = lsp_flags,
     capabilities = capabilities,
 }
+lspconfig['pylsp'].setup{
+    on_attach = on_attach,
+    flags = lsp_flags,
+    capabilities = capabilities,
+    settings = {
+      pylsp = {
+        plugins = {
+          pylsp_mypy = {
+            enabled = true
+          },
+          autopep8 = {
+            enabled = false
+          },
+          yapf = {
+            enabled = false
+          },
+        }
+      }
+    }
+}
 
 -- nvim-cmp setup
 local cmp = require 'cmp'

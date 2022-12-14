@@ -37,11 +37,18 @@ return require('packer').startup(function(use)
   use({
       "jose-elias-alvarez/null-ls.nvim",
       config = function()
-          require("null-ls").setup({
+          local null_ls = require('null-ls')
+          null_ls.setup({
               sources = {
-                  require("null-ls").builtins.diagnostics.cfn_lint,
+                  null_ls.builtins.formatting.trim_whitespace,
+                  null_ls.builtins.formatting.trim_newlines,
 
-                  require("null-ls").builtins.formatting.eslint_d,
+                  null_ls.builtins.diagnostics.cfn_lint,
+
+                  null_ls.builtins.formatting.eslint_d,
+
+                  null_ls.builtins.formatting.black,
+                  null_ls.builtins.formatting.isort,
               },
               on_attach = function(client, bufnr)
                   if client.supports_method("textDocument/formatting") then
