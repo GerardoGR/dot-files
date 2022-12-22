@@ -19,10 +19,15 @@ CMD ["bash"]
 RUN pacman -S --noconfirm \
   base-devel curl openssh git bash-completion \
   podman \
+  aws-cli-v2 \
   fzf ripgrep neovim wl-clipboard \
+  python-pip python-virtualenv \
   nodejs npm \
   neofetch \
   && echo "EDITOR=nvim" >> /etc/environment
+
+# Install python tooling
+RUN pip install pylsp-mypy black isort awsume
 
 # Install nodejs tooling
 RUN npm i -g eslint_d typescript typescript-language-server vscode-langservers-extracted
