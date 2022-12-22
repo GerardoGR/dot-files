@@ -1,5 +1,5 @@
 ### Taken from https://wiki.archlinux.org/title/Toolbox
-FROM archlinux/archlinux:latest
+FROM docker.io/archlinux/archlinux:latest
 
 ENV NAME=arch-toolbox VERSION=rolling
 
@@ -15,9 +15,14 @@ RUN pacman -Syu --noconfirm \
 CMD ["bash"]
 ###
 
-RUN pacman -S --noconfirm openssh git \
+# Install base packages
+RUN pacman -S --noconfirm \
+  base-devel curl openssh git bash-completion \
   libvirt vagrant podman \
   fzf ripgrep neovim wl-clipboard \
-  python-pip python-virtualenv neofetch
+  python-pip python-virtualenv \
+  neofetch \
+  && echo "EDITOR=nvim" >> /etc/environment
 
+# Install python tooling
 RUN pip install pylsp-mypy black isort
