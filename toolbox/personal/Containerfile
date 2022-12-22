@@ -1,0 +1,23 @@
+### Taken from https://wiki.archlinux.org/title/Toolbox
+FROM archlinux/archlinux:latest
+
+ENV NAME=arch-toolbox VERSION=rolling
+
+LABEL com.github.containers.toolbox="true" \
+  name="$NAME" \
+  version="$VERSION"
+
+RUN pacman -Syu --noconfirm \
+  && pacman -S sudo --noconfirm \
+  && pacman -Scc --noconfirm \
+  && echo "%wheel ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/toolbox
+
+CMD ["bash"]
+###
+
+RUN pacman -S --noconfirm openssh git \
+  libvirt vagrant podman \
+  fzf ripgrep neovim wl-clipboard \
+  python-pip python-virtualenv neofetch
+
+RUN pip install pylsp-mypy black isort
