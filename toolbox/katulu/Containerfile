@@ -1,0 +1,50 @@
+### Taken from https://wiki.archlinux.org/title/Toolbox
+FROM docker.io/archlinux/archlinux:latest
+
+ENV NAME=arch-toolbox VERSION=rolling
+
+LABEL com.github.containers.toolbox="true" \
+  name="$NAME" \
+  version="$VERSION"
+
+RUN pacman -Syu --noconfirm \
+  && pacman -S sudo --noconfirm \
+  && pacman -Scc --noconfirm \
+  && echo "%wheel ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/toolbox
+
+CMD ["bash"]
+###
+
+# Install base packages
+RUN pacman -S --noconfirm \
+  base-devel curl openssh git bash-completion \
+  podman \
+  fzf ripgrep neovim wl-clipboard \
+  nodejs npm \
+  neofetch \
+  && echo "EDITOR=nvim" >> /etc/environment
+
+# Install nodejs tooling
+RUN npm i -g eslint_d typescript typescript-language-server vscode-langservers-extracted
+
+# Install asdf
+ENV ASDF_DATA_DIR=/opt/asdf
+## cpio is the only makedep from asdf
+RUN pacman -S --noconfirm cpio \
+  && sudo -u nobody mkdir -p /tmp/asdf-install/ \
+  && sudo -u nobody git clone https://aur.archlinux.org/asdf-vm.git /tmp/asdf-install/asdf-vm \
+  && cd /tmp/asdf-install/asdf-vm \
+  && sudo -u nobody makepkg \
+  && pacman -U --noconfirm asdf-vm-*.pkg.tar.zst \
+  && mkdir -p $ASDF_DATA_DIR \
+  && chgrp -R wheel $ASDF_DATA_DIR \
+  && echo "ASDF_DATA_DIR=$ASDF_DATA_DIR" >> /etc/environment \
+  && echo ". /opt/asdf-vm/asdf.sh" >> /etc/profile \
+  && rm -rf /tmp/asdf-install
+
+# Install asdf-nodejs
+RUN source /etc/profile \
+  && asdf plugin add nodejs \
+  && asdf install nodejs 18.12.1 \
+  && chgrp -R wheel $ASDF_DATA_DIR \
+  && chmod -R 775 $ASDF_DATA_DIR
