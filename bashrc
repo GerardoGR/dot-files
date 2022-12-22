@@ -12,6 +12,15 @@ PATH=$PATH:$HOME/.local/dot-files-bin
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 
+# start the agent automatically and make sure that only one ssh-agent process runs at a time
+# source: https://wiki.archlinux.org/title/SSH_keys#SSH_agents
+if ! pgrep -u "$USER" ssh-agent > /dev/null; then
+    ssh-agent -t 1h > "$XDG_RUNTIME_DIR/ssh-agent.env"
+fi
+if [[ ! -f "$SSH_AUTH_SOCK" ]]; then
+    source "$XDG_RUNTIME_DIR/ssh-agent.env" >/dev/null
+fi
+
 # Firefox's wayland-mode
 if [ "$XDG_SESSION_TYPE" == "wayland" ]; then
     export MOZ_ENABLE_WAYLAND=1
