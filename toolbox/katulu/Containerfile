@@ -51,5 +51,7 @@ RUN pacman -S --noconfirm cpio \
 RUN source /etc/profile \
   && asdf plugin add nodejs \
   && asdf install nodejs 18.12.1 \
+  && asdf plugin add python \
+  && asdf install python 3.9.16 \
   && chgrp -R wheel $ASDF_DATA_DIR \
   && chmod -R 775 $ASDF_DATA_DIR
