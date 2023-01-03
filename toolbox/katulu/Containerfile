@@ -55,3 +55,9 @@ RUN source /etc/profile \
   && asdf install python 3.9.16 \
   && chgrp -R wheel $ASDF_DATA_DIR \
   && chmod -R 775 $ASDF_DATA_DIR
+
+# Install grpcurl
+RUN sudo -u nobody git clone https://aur.archlinux.org/grpcurl-bin.git /tmp/grpcurl-bin \
+  && cd /tmp/grpcurl-bin \
+  && sudo -u nobody makepkg \
+  && pacman -U --noconfirm grpcurl-bin-*.pkg.tar.zst
