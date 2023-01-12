@@ -21,13 +21,19 @@ RUN pacman -S --noconfirm \
   podman \
   aws-cli-v2 \
   fzf ripgrep neovim wl-clipboard \
-  python-pip python-virtualenv python-poetry \
+  python-pip python-virtualenv python-pipx \
   nodejs npm \
   neofetch \
   && echo "EDITOR=nvim" >> /etc/environment
 
 # Install python tooling
-RUN pip install pylsp-mypy black isort awsume
+ENV PIPX_HOME=/opt/pipx
+ENV PIPX_BIN_DIR=/usr/local/bin
+RUN pipx install pylsp-mypy --include-deps \
+  && pipx install black --include-deps \
+  && pipx install isort --include-deps \
+  && pipx install awsume --include-deps \
+  && pipx install poetry --include-deps
 
 # Install nodejs tooling
 RUN npm i -g eslint_d typescript typescript-language-server vscode-langservers-extracted
