@@ -36,16 +36,15 @@ RUN npm i -g eslint_d typescript typescript-language-server vscode-langservers-e
 ENV ASDF_DATA_DIR=/opt/asdf
 ## cpio is the only makedep from asdf
 RUN pacman -S --noconfirm cpio \
-  && sudo -u nobody mkdir -p /tmp/asdf-install/ \
-  && sudo -u nobody git clone https://aur.archlinux.org/asdf-vm.git /tmp/asdf-install/asdf-vm \
-  && cd /tmp/asdf-install/asdf-vm \
+  && sudo -u nobody git clone https://aur.archlinux.org/asdf-vm.git /tmp/asdf-vm \
+  && cd /tmp/asdf-vm \
   && sudo -u nobody makepkg \
   && pacman -U --noconfirm asdf-vm-*.pkg.tar.zst \
   && mkdir -p $ASDF_DATA_DIR \
   && chgrp -R wheel $ASDF_DATA_DIR \
   && echo "ASDF_DATA_DIR=$ASDF_DATA_DIR" >> /etc/environment \
   && echo ". /opt/asdf-vm/asdf.sh" >> /etc/profile \
-  && rm -rf /tmp/asdf-install
+  && rm -rf /tmp/asdf-vm
 
 # Install asdf-nodejs
 RUN source /etc/profile \
