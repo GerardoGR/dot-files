@@ -26,3 +26,24 @@ RUN pacman -S --noconfirm \
 
 # Install python tooling
 RUN pip install pylsp-mypy black isort
+
+# Install asdf
+ENV ASDF_DATA_DIR=/opt/asdf
+## cpio is the only makedep from asdf
+RUN pacman -S --noconfirm cpio \
+  && sudo -u nobody git clone https://aur.archlinux.org/asdf-vm.git /tmp/asdf-vm \
+  && cd /tmp/asdf-vm \
+  && sudo -u nobody makepkg \
+  && pacman -U --noconfirm asdf-vm-*.pkg.tar.zst \
+  && mkdir -p $ASDF_DATA_DIR \
+  && chgrp -R wheel $ASDF_DATA_DIR \
+  && echo "ASDF_DATA_DIR=$ASDF_DATA_DIR" >> /etc/environment \
+  && echo ". /opt/asdf-vm/asdf.sh" >> /etc/profile \
+  && rm -rf /tmp/asdf-vm
+
+# Install asdf-python
+RUN source /etc/profile \
+  && asdf plugin add python \
+  && asdf install python 3.9.16 \
+  && chgrp -R wheel $ASDF_DATA_DIR \
+  && chmod -R 775 $ASDF_DATA_DIR
