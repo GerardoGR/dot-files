@@ -17,7 +17,7 @@ CMD ["bash"]
 
 # Install base packages
 RUN pacman -S --noconfirm \
-  base-devel curl openssh git bash-completion \
+  base-devel curl openssh git bash-completion cmake \
   podman \
   aws-cli-v2 \
   fzf ripgrep neovim wl-clipboard \
@@ -66,3 +66,9 @@ RUN sudo -u nobody git clone https://aur.archlinux.org/grpcurl-bin.git /tmp/grpc
   && cd /tmp/grpcurl-bin \
   && sudo -u nobody makepkg \
   && pacman -U --noconfirm grpcurl-bin-*.pkg.tar.zst
+
+# Install hadolint
+RUN sudo -u nobody git clone https://aur.archlinux.org/hadolint-bin.git /tmp/hadolint-bin \
+  && cd /tmp/hadolint-bin \
+  && sudo -u nobody makepkg \
+  && pacman -U --noconfirm hadolint-bin-*.pkg.tar.zst
