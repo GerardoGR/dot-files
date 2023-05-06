@@ -43,3 +43,9 @@ RUN sudo -u nobody git clone https://aur.archlinux.org/terraform-ls-bin.git /tmp
   && cd /tmp/terraform-ls-bin \
   && sudo -u nobody makepkg \
   && pacman -U --noconfirm terraform-ls-bin-*.pkg.tar.zst
+
+# Azure
+RUN sudo -u nobody git clone https://aur.archlinux.org/azure-cli.git /tmp/azure-cli \
+  && cd /tmp/azure-cli \
+  && sudo -u nobody makepkg \
+  && pacman -U --noconfirm azure-cli-*.pkg.tar.zst
