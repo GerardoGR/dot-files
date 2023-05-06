@@ -22,33 +22,24 @@ CMD ["bash"]
 
 # Install base packages
 RUN pacman -S --noconfirm \
-  base-devel curl openssh git bash-completion \
-  libvirt vagrant podman \
+  base-devel curl openssh git bash-completion zip unzip bc \
+  libvirt vagrant podman aws-cli-v2 terraform \
   fzf ripgrep neovim wl-clipboard \
-  python-pip python-virtualenv \
+  python-pip python-virtualenv python-pipx \
   neofetch \
   && echo "EDITOR=nvim" >> /etc/environment
 
 # Install python tooling
-RUN pip install pylsp-mypy black isort
+ENV PIPX_HOME=/opt/pipx
+ENV PIPX_BIN_DIR=/usr/local/bin
+RUN pipx install pylsp-mypy --include-deps \
+  && pipx install poetry --include-deps \
+  && pipx install black --include-deps \
+  && pipx install isort --include-deps \
+  && pipx install pylint --include-deps
 
-# Install asdf
-ENV ASDF_DATA_DIR=/opt/asdf
-## cpio is the only makedep from asdf
-RUN pacman -S --noconfirm cpio \
-  && sudo -u nobody git clone https://aur.archlinux.org/asdf-vm.git /tmp/asdf-vm \
-  && cd /tmp/asdf-vm \
+# Terraform utils
+RUN sudo -u nobody git clone https://aur.archlinux.org/terraform-ls-bin.git /tmp/terraform-ls-bin \
+  && cd /tmp/terraform-ls-bin \
   && sudo -u nobody makepkg \
-  && pacman -U --noconfirm asdf-vm-*.pkg.tar.zst \
-  && mkdir -p $ASDF_DATA_DIR \
-  && chgrp -R wheel $ASDF_DATA_DIR \
-  && echo "ASDF_DATA_DIR=$ASDF_DATA_DIR" >> /etc/environment \
-  && echo ". /opt/asdf-vm/asdf.sh" >> /etc/profile \
-  && rm -rf /tmp/asdf-vm
-
-# Install asdf-python
-RUN source /etc/profile \
-  && asdf plugin add python \
-  && asdf install python 3.9.16 \
-  && chgrp -R wheel $ASDF_DATA_DIR \
-  && chmod -R 775 $ASDF_DATA_DIR
+  && pacman -U --noconfirm terraform-ls-bin-*.pkg.tar.zst

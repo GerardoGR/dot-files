@@ -103,7 +103,7 @@ lspconfig['pylsp'].setup{
       pylsp = {
         plugins = {
           pylsp_mypy = {
-            enabled = true
+            enabled = true,
           },
           autopep8 = {
             enabled = false
@@ -114,6 +114,11 @@ lspconfig['pylsp'].setup{
         }
       }
     }
+}
+lspconfig['terraformls'].setup{
+    on_attach = on_attach,
+    flags = lsp_flags,
+    capabilities = capabilities
 }
 
 -- nvim-cmp setup

@@ -21,7 +21,9 @@ local packer_bootstrap = ensure_packer()
 
 return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim' -- Packer can manage itself
- 
+
+  use 'hashivim/vim-terraform'
+
   use 'Tsuzat/NeoSolarized.nvim'
   use 'airblade/vim-gitgutter'
   use 'tpope/vim-commentary'
@@ -49,6 +51,8 @@ return require('packer').startup(function(use)
 
                   null_ls.builtins.formatting.black,
                   null_ls.builtins.formatting.isort,
+
+                  null_ls.builtins.formatting.terraform_fmt,
               },
               on_attach = function(client, bufnr)
                   if client.supports_method("textDocument/formatting") then
