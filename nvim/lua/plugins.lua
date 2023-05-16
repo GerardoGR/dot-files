@@ -22,8 +22,6 @@ local packer_bootstrap = ensure_packer()
 return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim' -- Packer can manage itself
 
-  use 'hashivim/vim-terraform'
-
   use 'Tsuzat/NeoSolarized.nvim'
   use 'airblade/vim-gitgutter'
   use 'tpope/vim-commentary'
@@ -31,6 +29,8 @@ return require('packer').startup(function(use)
   use 'tpope/vim-fugitive'
   use 'junegunn/fzf'
   use 'junegunn/fzf.vim'
+
+  use 'hashivim/vim-terraform'
 
   use 'neovim/nvim-lspconfig'
   use 'hrsh7th/nvim-cmp'
@@ -49,8 +49,14 @@ return require('packer').startup(function(use)
 
                   null_ls.builtins.formatting.eslint_d,
 
+                  null_ls.builtins.diagnostics.pylint.with({
+                      -- Using asdf-python introduces a lot of lag, hence the timeout
+                      timeout = 10000,
+                  }),
                   null_ls.builtins.formatting.black,
                   null_ls.builtins.formatting.isort,
+
+                  null_ls.builtins.diagnostics.hadolint,
 
                   null_ls.builtins.formatting.terraform_fmt,
               },

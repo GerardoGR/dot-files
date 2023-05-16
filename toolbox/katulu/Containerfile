@@ -16,27 +16,25 @@ CMD ["bash"]
 ###
 
 # Install base packages
+ENV EDITOR=nvim
 RUN pacman -S --noconfirm \
-  base-devel curl openssh git bash-completion cmake \
-  podman \
-  aws-cli-v2 \
+  zip unzip curl wget openssh bash-completion bind \
+  base-devel git cmake \
+  aws-cli-v2 terraform \
   fzf ripgrep neovim wl-clipboard \
-  python-pip python-virtualenv python-pipx \
-  nodejs npm \
-  neofetch \
-  && echo "EDITOR=nvim" >> /etc/environment
+  python-setuptools python-pip python-virtualenv python-pipx \
+  neofetch
 
 # Install python tooling
 ENV PIPX_HOME=/opt/pipx
 ENV PIPX_BIN_DIR=/usr/local/bin
 RUN pipx install pylsp-mypy --include-deps \
+  && pipx inject pylsp-mypy pylint \
   && pipx install black --include-deps \
   && pipx install isort --include-deps \
-  && pipx install awsume --include-deps \
-  && pipx install poetry --include-deps
-
-# Install nodejs tooling
-RUN npm i -g eslint_d typescript typescript-language-server vscode-langservers-extracted
+  && pipx install awsume --include-deps
+#   && pipx install poetry --include-deps \
+#   && pipx inject poetry keyring keyrings.google-artifactregistry-auth
 
 # Install asdf
 ENV ASDF_DATA_DIR=/opt/asdf
@@ -48,18 +46,16 @@ RUN pacman -S --noconfirm cpio \
   && pacman -U --noconfirm asdf-vm-*.pkg.tar.zst \
   && mkdir -p $ASDF_DATA_DIR \
   && chgrp -R wheel $ASDF_DATA_DIR \
-  && echo "ASDF_DATA_DIR=$ASDF_DATA_DIR" >> /etc/environment \
+  && chmod -R 775 $ASDF_DATA_DIR \
   && echo ". /opt/asdf-vm/asdf.sh" >> /etc/profile \
   && rm -rf /tmp/asdf-vm
 
-# Install asdf-nodejs
+# Install asdf plugins
+ENV ASDF_PYTHON_DEFAULT_PACKAGES_FILE=/opt/asdf/.default-python-packages
+COPY .default-python-packages /opt/asdf/.default-python-packages
 RUN source /etc/profile \
-  && asdf plugin add nodejs \
-  && asdf install nodejs 18.12.1 \
   && asdf plugin add python \
-  && asdf install python 3.9.16 \
-  && chgrp -R wheel $ASDF_DATA_DIR \
-  && chmod -R 775 $ASDF_DATA_DIR
+  && asdf install python 3.10.10
 
 # Install grpcurl
 RUN sudo -u nobody git clone https://aur.archlinux.org/grpcurl-bin.git /tmp/grpcurl-bin \
@@ -72,3 +68,20 @@ RUN sudo -u nobody git clone https://aur.archlinux.org/hadolint-bin.git /tmp/had
   && cd /tmp/hadolint-bin \
   && sudo -u nobody makepkg \
   && pacman -U --noconfirm hadolint-bin-*.pkg.tar.zst
+
+# Install gcloud
+  # wget -O /tmp/$gcloud_archive https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/$gcloud_archive --progress=dot:giga \
+RUN gcloud_version="416.0.0"; \
+  gcloud_sha256sum="b7e8a9ac9470a8fe6f251994ad4c25ea483aa9942e44e43562ef77be13f257a1"; \
+  gcloud_archive="google-cloud-cli-$gcloud_version-linux-x86_64.tar.gz"; \
+  wget -O /tmp/$gcloud_archive https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/$gcloud_archive --progress=dot:giga \
+  && echo "$gcloud_sha256sum /tmp/$gcloud_archive" | sha256sum --strict --check - \
+  && tar -C /opt -xf /tmp/$gcloud_archive \
+  && /opt/google-cloud-sdk/install.sh -q
+
+# Install terraform-ls
+RUN pacman -S --noconfirm bc \
+  && sudo -u nobody git clone https://aur.archlinux.org/terraform-ls-bin.git /tmp/terraform-ls-bin \
+  && cd /tmp/terraform-ls-bin \
+  && sudo -u nobody makepkg \
+  && pacman -U --noconfirm terraform-ls-bin-*.pkg.tar.zst

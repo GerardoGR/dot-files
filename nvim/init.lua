@@ -3,7 +3,7 @@ require('plugins')
 local set = vim.opt
 local api = vim.api
 
-set.background = 'dark'
+set.background = 'light'
 api.nvim_command [[colorscheme NeoSolarized]]
 set.termguicolors = true
 
@@ -102,6 +102,9 @@ lspconfig['pylsp'].setup{
     settings = {
       pylsp = {
         plugins = {
+          pylint = {
+            enabled = false
+          },
           pylsp_mypy = {
             enabled = true,
           },
@@ -118,7 +121,7 @@ lspconfig['pylsp'].setup{
 lspconfig['terraformls'].setup{
     on_attach = on_attach,
     flags = lsp_flags,
-    capabilities = capabilities
+    capabilities = capabilities,
 }
 
 -- nvim-cmp setup
