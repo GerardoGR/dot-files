@@ -38,6 +38,12 @@ RUN pipx install pylsp-mypy --include-deps \
   && pipx install isort --include-deps \
   && pipx install pylint --include-deps
 
+# Install hadolint
+RUN sudo -u nobody git clone https://aur.archlinux.org/hadolint-bin.git /tmp/hadolint-bin \
+  && cd /tmp/hadolint-bin \
+  && sudo -u nobody makepkg \
+  && pacman -U --noconfirm hadolint-bin-*.pkg.tar.zst
+
 # Terraform utils
 RUN sudo -u nobody git clone https://aur.archlinux.org/terraform-ls-bin.git /tmp/terraform-ls-bin \
   && cd /tmp/terraform-ls-bin \
