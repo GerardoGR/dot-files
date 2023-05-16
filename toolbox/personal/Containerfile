@@ -1,4 +1,6 @@
+# hadolint global ignore=DL3004,DL3003
 ### Taken from https://wiki.archlinux.org/title/Toolbox
+# hadolint global ignore=DL3007
 FROM docker.io/archlinux/archlinux:latest
 
 ENV NAME=arch-toolbox VERSION=rolling
@@ -32,6 +34,7 @@ RUN pacman -S --noconfirm \
 # Install python tooling
 ENV PIPX_HOME=/opt/pipx
 ENV PIPX_BIN_DIR=/usr/local/bin
+# hadolint ignore=DL3013
 RUN pipx install pylsp-mypy --include-deps \
   && pipx install poetry --include-deps \
   && pipx install black --include-deps \
@@ -40,18 +43,15 @@ RUN pipx install pylsp-mypy --include-deps \
 
 # Install hadolint
 RUN sudo -u nobody git clone https://aur.archlinux.org/hadolint-bin.git /tmp/hadolint-bin \
-  && cd /tmp/hadolint-bin \
-  && sudo -u nobody makepkg \
-  && pacman -U --noconfirm hadolint-bin-*.pkg.tar.zst
+  && (cd /tmp/hadolint-bin && sudo -u nobody makepkg) \
+  && pacman -U --noconfirm /tmp/hadolint-bin/hadolint-bin-*.pkg.tar.zst
 
 # Terraform utils
 RUN sudo -u nobody git clone https://aur.archlinux.org/terraform-ls-bin.git /tmp/terraform-ls-bin \
-  && cd /tmp/terraform-ls-bin \
-  && sudo -u nobody makepkg \
-  && pacman -U --noconfirm terraform-ls-bin-*.pkg.tar.zst
+  && (cd /tmp/terraform-ls-bin && sudo -u nobody makepkg) \
+  && pacman -U --noconfirm /tmp/terraform-ls-bin/terraform-ls-bin-*.pkg.tar.zst
 
 # Azure
 RUN sudo -u nobody git clone https://aur.archlinux.org/azure-cli.git /tmp/azure-cli \
-  && cd /tmp/azure-cli \
-  && sudo -u nobody makepkg \
-  && pacman -U --noconfirm azure-cli-*.pkg.tar.zst
+  && (cd /tmp/azure-cli && sudo -u nobody makepkg) \
+  && pacman -U --noconfirm /tmp/azure-cli/azure-cli-*.pkg.tar.zst
