@@ -21,13 +21,13 @@ CMD ["bash"]
 ###
 
 # Install base packages
+ENV EDITOR=nvim
 RUN pacman -S --noconfirm \
   base-devel curl openssh git bash-completion zip unzip bc \
   libvirt vagrant podman aws-cli-v2 terraform \
   fzf ripgrep neovim wl-clipboard \
   python-pip python-virtualenv python-pipx \
-  neofetch \
-  && echo "EDITOR=nvim" >> /etc/environment
+  neofetch
 
 # Install python tooling
 ENV PIPX_HOME=/opt/pipx
