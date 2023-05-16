@@ -30,8 +30,6 @@ return require('packer').startup(function(use)
   use 'junegunn/fzf'
   use 'junegunn/fzf.vim'
 
-  use 'hashivim/vim-terraform'
-
   use 'neovim/nvim-lspconfig'
   use 'hrsh7th/nvim-cmp'
   use 'hrsh7th/cmp-nvim-lsp'

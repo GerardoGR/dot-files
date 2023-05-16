@@ -5,6 +5,7 @@ local api = vim.api
 
 set.background = 'light'
 api.nvim_command [[colorscheme NeoSolarized]]
+
 set.termguicolors = true
 
 set.ts = 2
