@@ -26,7 +26,7 @@ CMD ["bash"]
 ENV EDITOR=nvim
 RUN pacman -S --noconfirm \
   curl openssh git bash-completion zip unzip bc \
-  base-devel git \
+  base-devel git qt6-base qt6-declarative \
   aws-cli-v2 terraform \
   fzf ripgrep neovim wl-clipboard \
   rustup rust-analizer \
