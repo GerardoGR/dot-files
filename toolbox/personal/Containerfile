@@ -25,9 +25,11 @@ CMD ["bash"]
 # Install base packages
 ENV EDITOR=nvim
 RUN pacman -S --noconfirm \
-  base-devel curl openssh git bash-completion zip unzip bc \
-  libvirt vagrant podman aws-cli-v2 terraform \
+  curl openssh git bash-completion zip unzip bc \
+  base-devel git \
+  aws-cli-v2 terraform \
   fzf ripgrep neovim wl-clipboard \
+  rustup rust-analizer \
   python-pip python-virtualenv python-pipx \
   neofetch
 
