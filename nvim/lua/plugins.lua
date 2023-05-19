@@ -22,7 +22,7 @@ local packer_bootstrap = ensure_packer()
 return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim' -- Packer can manage itself
 
-  use 'Tsuzat/NeoSolarized.nvim'
+  use 'overcache/NeoSolarized'
   use 'airblade/vim-gitgutter'
   use 'tpope/vim-commentary'
 
