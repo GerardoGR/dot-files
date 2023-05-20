@@ -27,8 +27,6 @@ return require('packer').startup(function(use)
   use 'tpope/vim-commentary'
 
   use 'tpope/vim-fugitive'
-  use 'junegunn/fzf'
-  use 'junegunn/fzf.vim'
 
   use 'neovim/nvim-lspconfig'
   use 'hrsh7th/nvim-cmp'
