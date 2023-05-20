@@ -161,28 +161,12 @@ cmp.setup {
   },
 }
 
--- fzf
-vim.cmd([[
-command! RecursiveGFiles call fzf#run(fzf#wrap({'source': 'git ls-files --cached --recurse-submodules & git ls-files --exclude-standard --others'}))
-command! CtrlP execute (len(system("git rev-parse"))) ? ':Files' : ':RecursiveGFiles'
-map <C-p> :CtrlP<CR>
-
-let $FZF_DEFAULT_OPTS = '--bind alt-a:select-all'
-
-func s:fnameescape(key, val)
-  return fnameescape(a:val)
-endfunc
-function! s:populate_arg_list(lines)
-  execute 'args ' . join(map(a:lines, function('s:fnameescape')), ' ')
-endfunction
-
-let g:fzf_action = {
-  \ 'ctrl-l': function('s:populate_arg_list'),
-  \ 'ctrl-t': 'tab split',
-  \ 'ctrl-x': 'split',
-  \ 'ctrl-v': 'vsplit'
-  \}
-]])
+-- Telescope
+local builtin = require('telescope.builtin')
+vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
+vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
+vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
+vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
 
 -- gitgutter
 set.updatetime = 100
