@@ -1,9 +1,9 @@
 require('plugins')
+require('local')
 
 local set = vim.opt
 local api = vim.api
 
-set.background = 'light'
 api.nvim_command [[colorscheme NeoSolarized]]
 
 set.termguicolors = true
