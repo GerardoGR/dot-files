@@ -1,5 +1,4 @@
 require('plugins')
-require('local')
 
 local set = vim.opt
 local api = vim.api
