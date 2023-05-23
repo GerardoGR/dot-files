@@ -23,8 +23,8 @@ CMD ["bash"]
 # Install base packages
 ENV EDITOR=nvim
 RUN pacman -S --noconfirm \
-  zip unzip curl wget openssh bash-completion bind \
-  base-devel git cmake \
+  bc zip unzip curl wget openssh bash-completion bind \
+  base-devel git cmake protobuf \
   aws-cli-v2 terraform \
   fzf ripgrep neovim wl-clipboard \
   python-setuptools python-pip python-virtualenv python-pipx \
@@ -68,6 +68,12 @@ RUN sudo -u nobody git clone https://aur.archlinux.org/grpcurl-bin.git /tmp/grpc
   && sudo -u nobody makepkg \
   && pacman -U --noconfirm grpcurl-bin-*.pkg.tar.zst
 
+# Install protoc-gen-grpc-web
+RUN sudo -u nobody git clone https://aur.archlinux.org/protoc-gen-grpc-web.git /tmp/protoc-gen-grpc-web \
+  && cd /tmp/protoc-gen-grpc-web \
+  && sudo -u nobody makepkg \
+  && pacman -U --noconfirm protoc-gen-grpc-web-*.pkg.tar.zst
+
 # Install hadolint
 RUN sudo -u nobody git clone https://aur.archlinux.org/hadolint-bin.git /tmp/hadolint-bin \
   && cd /tmp/hadolint-bin \
@@ -85,8 +91,7 @@ RUN gcloud_version="416.0.0"; \
   && /opt/google-cloud-sdk/install.sh -q
 
 # Install terraform-ls
-RUN pacman -S --noconfirm bc \
-  && sudo -u nobody git clone https://aur.archlinux.org/terraform-ls-bin.git /tmp/terraform-ls-bin \
+RUN sudo -u nobody git clone https://aur.archlinux.org/terraform-ls-bin.git /tmp/terraform-ls-bin \
   && cd /tmp/terraform-ls-bin \
   && sudo -u nobody makepkg \
   && pacman -U --noconfirm terraform-ls-bin-*.pkg.tar.zst
