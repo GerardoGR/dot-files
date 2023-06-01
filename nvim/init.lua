@@ -19,6 +19,8 @@ set.hlsearch = false
 set.laststatus = 0
 set.clipboard = 'unnamedplus'
 
+api.nvim_command [[autocmd BufNewFile,BufRead *.yml set filetype=yaml.ansible]]
+
 -- Netrw
 -- Inspired by:
 -- https://vonheikemen.github.io/devlog/tools/using-netrw-vim-builtin-file-explorer/
@@ -124,6 +126,11 @@ lspconfig['terraformls'].setup{
     capabilities = capabilities,
 }
 lspconfig['rust_analyzer'].setup{
+    on_attach = on_attach,
+    flags = lsp_flags,
+    capabilities = capabilities,
+}
+lspconfig['ansiblels'].setup{
     on_attach = on_attach,
     flags = lsp_flags,
     capabilities = capabilities,

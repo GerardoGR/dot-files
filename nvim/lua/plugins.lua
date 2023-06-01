@@ -57,6 +57,8 @@ return require('packer').startup(function(use)
                   null_ls.builtins.formatting.terraform_fmt,
 
                   null_ls.builtins.formatting.rustfmt,
+
+                  null_ls.builtins.formatting.prettier,
               },
               on_attach = function(client, bufnr)
                   if client.supports_method("textDocument/formatting") then

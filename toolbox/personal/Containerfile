@@ -57,3 +57,6 @@ RUN sudo -u nobody git clone https://aur.archlinux.org/terraform-ls-bin.git /tmp
 RUN sudo -u nobody git clone https://aur.archlinux.org/azure-cli.git /tmp/azure-cli \
   && (cd /tmp/azure-cli && sudo -u nobody makepkg) \
   && pacman -U --noconfirm /tmp/azure-cli/azure-cli-*.pkg.tar.zst
+
+# Ansible
+RUN pacman -S ansible ansible-language-server ansible-lint prettier bitwarden-cli
