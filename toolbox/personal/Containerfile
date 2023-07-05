@@ -1,6 +1,8 @@
-# hadolint global ignore=DL3004,DL3003
+# To run podman within the toolbox: systemctl --user enable --now podman.socket
+# podman build -t personal-toolbox .
+# toolbox rm -f personal-toolbox && toolbox create -i personal-toolbox
+# hadolint global ignore=DL3004,DL3003,DL3007,DL3016
 ### Taken from https://wiki.archlinux.org/title/Toolbox
-# hadolint global ignore=DL3007
 FROM docker.io/archlinux/archlinux:latest
 
 ENV NAME=arch-toolbox VERSION=rolling
@@ -22,31 +24,35 @@ RUN pacman -Syu --noconfirm \
 CMD ["bash"]
 ###
 
-# Install base packages
+# To run podman within the toolbox
+ENV CONTAINER_CONNECTION=1
 ENV EDITOR=nvim
 RUN pacman -S --noconfirm \
-  curl openssh git bash-completion zip unzip bc \
-  base-devel git qt6-base qt6-declarative \
-  aws-cli-v2 terraform \
+  man-db man-pages bash-completion bc \
+  curl openssh zip unzip \
+  base-devel git \
   fzf ripgrep neovim wl-clipboard \
-  rustup rust-analizer \
-  python-pip python-virtualenv python-pipx \
+  podman libvirt vagrant \
+  terraform kubectl helm \
+  ansible ansible-language-server ansible-lint \
+  python-pip python-virtualenv python-poetry python-black python-isort python-lsp-server \
+  nodejs npm \
+  rustup rust-analyzer \
+  prettier yamllint yaml-language-server \
   neofetch
 
-# Install python tooling
-ENV PIPX_HOME=/opt/pipx
-ENV PIPX_BIN_DIR=/usr/local/bin
-# hadolint ignore=DL3013
-RUN pipx install pylsp-mypy --include-deps \
-  && pipx install poetry --include-deps \
-  && pipx install black --include-deps \
-  && pipx install isort --include-deps \
-  && pipx install pylint --include-deps
+# Install qt dev packages
+# RUN pacman -S --noconfirm qt6-base qt6-declarative
 
 # Install hadolint
 RUN sudo -u nobody git clone https://aur.archlinux.org/hadolint-bin.git /tmp/hadolint-bin \
   && (cd /tmp/hadolint-bin && sudo -u nobody makepkg) \
   && pacman -U --noconfirm /tmp/hadolint-bin/hadolint-bin-*.pkg.tar.zst
+
+# Kubernetes Kind
+RUN sudo -u nobody git clone https://aur.archlinux.org/kind-bin.git /tmp/kind-bin \
+  && (cd /tmp/kind-bin && sudo -u nobody makepkg) \
+  && pacman -U --noconfirm /tmp/kind-bin/kind-bin-*.pkg.tar.zst
 
 # Terraform utils
 RUN sudo -u nobody git clone https://aur.archlinux.org/terraform-ls-bin.git /tmp/terraform-ls-bin \
@@ -56,7 +62,9 @@ RUN sudo -u nobody git clone https://aur.archlinux.org/terraform-ls-bin.git /tmp
 # Azure
 RUN sudo -u nobody git clone https://aur.archlinux.org/azure-cli.git /tmp/azure-cli \
   && (cd /tmp/azure-cli && sudo -u nobody makepkg) \
-  && pacman -U --noconfirm /tmp/azure-cli/azure-cli-*.pkg.tar.zst
+  && pacman -U --noconfirm /tmp/azure-cli/azure-cli-*.pkg.tar.zst \
+  && az extension add -n ssh
 
-# Ansible
-RUN pacman -S ansible ansible-language-server ansible-lint prettier bitwarden-cli
+# Bitwarden CLI
+# Installing bitwarden/cli via npm because the pacman package relies on nodejs-lts-gallium which conflicts with nodejs
+RUN npm install -g @bitwarden/cli

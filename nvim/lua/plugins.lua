@@ -28,9 +28,11 @@ return require('packer').startup(function(use)
 
   use 'tpope/vim-fugitive'
 
-  use 'neovim/nvim-lspconfig'
-  use 'hrsh7th/nvim-cmp'
-  use 'hrsh7th/cmp-nvim-lsp'
+  use 'neovim/nvim-lspconfig' -- Collection of configurations for built-in LSP client
+  use 'hrsh7th/nvim-cmp' -- Autocompletion plugin
+  use 'hrsh7th/cmp-nvim-lsp' -- LSP source for nvim-cmp
+  use 'saadparwaiz1/cmp_luasnip' -- Snippets source for nvim-cmp
+  use 'L3MON4D3/LuaSnip' -- Snippets plugin
   local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
   use({
       "jose-elias-alvarez/null-ls.nvim",
@@ -41,14 +43,8 @@ return require('packer').startup(function(use)
                   null_ls.builtins.formatting.trim_whitespace,
                   null_ls.builtins.formatting.trim_newlines,
 
-                  null_ls.builtins.diagnostics.cfn_lint,
-
                   null_ls.builtins.formatting.eslint_d,
 
-                  null_ls.builtins.diagnostics.pylint.with({
-                      -- Using asdf-python introduces a lot of lag, hence the timeout
-                      timeout = 10000,
-                  }),
                   null_ls.builtins.formatting.black,
                   null_ls.builtins.formatting.isort,
 

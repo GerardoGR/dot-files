@@ -135,13 +135,42 @@ lspconfig['ansiblels'].setup{
     flags = lsp_flags,
     capabilities = capabilities,
 }
+lspconfig['yamlls'].setup {
+  on_attach = on_attach,
+  flags = lsp_flags,
+  capabilities = capabilities,
+  settings = {
+    yaml = {
+      validate = true,
+      completion = true,
+      hover = true,
+      schemas = {
+        kubernetes = "/*.k8s.yaml"
+      },
+    },
+    redhat = {
+      telemetry = {
+        enabled = false
+      }
+    }
+  }
+}
+
+-- luasnip setup
+local luasnip = require 'luasnip'
 
 -- nvim-cmp setup
 local cmp = require 'cmp'
 cmp.setup {
+  snippet = {
+    expand = function(args)
+      luasnip.lsp_expand(args.body)
+    end,
+  },
   mapping = cmp.mapping.preset.insert({
-    ['<C-d>'] = cmp.mapping.scroll_docs(-4),
-    ['<C-f>'] = cmp.mapping.scroll_docs(4),
+    ['<C-u>'] = cmp.mapping.scroll_docs(-4), -- Up
+    ['<C-d>'] = cmp.mapping.scroll_docs(4), -- Down
+    -- C-b (back) C-f (forward) for snippet placeholder navigation.
     ['<C-Space>'] = cmp.mapping.complete(),
     ['<CR>'] = cmp.mapping.confirm {
       behavior = cmp.ConfirmBehavior.Replace,
@@ -150,6 +179,8 @@ cmp.setup {
     ['<Tab>'] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
+      elseif luasnip.expand_or_jumpable() then
+        luasnip.expand_or_jump()
       else
         fallback()
       end
@@ -157,6 +188,8 @@ cmp.setup {
     ['<S-Tab>'] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_prev_item()
+      elseif luasnip.jumpable(-1) then
+        luasnip.jump(-1)
       else
         fallback()
       end
@@ -164,6 +197,7 @@ cmp.setup {
   }),
   sources = {
     { name = 'nvim_lsp' },
+    { name = 'luasnip' },
   },
 }
 
